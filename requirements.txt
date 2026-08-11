@@ -1,0 +1,10 @@
+# Core (pinned to a GRPO-compatible combo)
+trl>=0.15.0
+transformers>=4.48.0
+peft>=0.14.0
+datasets>=3.0.0
+accelerate>=1.2.0
+pandas
+matplotlib
+# Optional, GPU-only, MUST be a TRL-supported version:
+# vllm>=0.17,<=0.25.1

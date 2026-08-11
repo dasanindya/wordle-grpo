@@ -1,0 +1,32 @@
+# Reference settings for the faithful 7B GRPO run (from the project report).
+# NOTE: src/config.py is the source of truth; these values mirror it and can be
+# exported as WORDLE_* environment variables to override the code defaults.
+
+base_model: Qwen/Qwen2.5-7B-Instruct     # WORDLE_BASE_MODEL
+quick: false                             # WORDLE_QUICK=0
+
+sampling:
+  num_generations: 16                    # WORDLE_NUM_GENERATIONS
+  max_completion_length: 4096            # WORDLE_MAX_COMPLETION
+
+optim:
+  learning_rate: 1.0e-5                  # WORDLE_LR
+  num_train_epochs: 1                    # WORDLE_EPOCHS
+  per_device_train_batch_size: 16        # WORDLE_BATCH
+  gradient_accumulation_steps: 1         # WORDLE_GRAD_ACCUM
+  beta: 0.04                             # WORDLE_BETA  (KL coefficient)
+  epsilon: 0.2                           # WORDLE_EPSILON (PPO clip range)
+
+lora:
+  r: 64                                  # WORDLE_LORA_RANK
+  lora_alpha: 128                        # WORDLE_LORA_ALPHA
+  lora_dropout: 0.05                     # WORDLE_LORA_DROPOUT
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, down_proj, up_proj]
+
+data:
+  grpo_dataset: predibase/wordle-grpo    # WORDLE_GRPO_DATASET
+  sft_dataset: predibase/wordle-sft      # WORDLE_SFT_DATASET
+  word_list_cache: data/wordle_word_list.csv
+
+output:
+  output_root: outputs                   # WORDLE_OUTPUT_ROOT

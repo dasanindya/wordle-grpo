@@ -1,0 +1,20 @@
+# Environments
+.venv/
+env/
+__pycache__/
+*.py[cod]
+
+# Secrets
+.env
+
+# Data / artifacts / logs (keep the folders via .gitkeep)
+data/*
+!data/.gitkeep
+outputs/*
+!outputs/.gitkeep
+logs/*
+!logs/.gitkeep
+
+# Hugging Face cache
+hf_cache/
+*.safetensors
